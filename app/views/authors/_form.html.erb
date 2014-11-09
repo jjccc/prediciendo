@@ -1,0 +1,30 @@
+<%= form_for(@author, :html => { :role => "form", :multipart => true}) do |f| %>
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-name" class="form-group no-horizontal-padding">
+      <%= f.text_field :name, :class => "form-control input-lg", :maxlength => 250, :placeholder => "Nombre del autor" %>
+    </div>
+  </div>
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-title" class="form-group no-horizontal-padding">
+      <%= f.text_field :title, :maxlength => 250, :class => "form-control input-lg", :placeholder => "Título del autor" %>
+    </div>
+  </div>
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-file" class="form-group no-horizontal-padding">
+      <%= f.file_field :file %>
+    </div>
+  </div>
+  <% if @author.has_image? %>
+    <div class="col-md-12 no-horizontal-margin">
+      <div id="form-group-image" class="form-group no-horizontal-padding">
+        <img src="<%= @author.image_path %>">
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-12 no-horizontal-margin">
+    <div class="form-group no-horizontal-padding">
+      <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+      <a class="btn btn-warning btn-lg" href="<%= authors_path %>">Cancelar</a>
+    </div>
+  </div>
+<% end %>

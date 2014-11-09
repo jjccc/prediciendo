@@ -1,0 +1,15 @@
+<div class="row no-horizontal-margin">
+  <div class="col-lg-12 no-horizontal-padding">
+    <ul class="nav nav-tabs" role="tablist">
+      <li <%= "class=\"active\"".html_safe if @is_pending_predictions_list == true %>>
+        <a href="<%= predictions_path %>">Predicciones pendientes</a>
+      </li>
+      <li <%= "class=\"active\"".html_safe if @is_completed_predictions_list == true %>>
+        <a href="<%= predictions_path(:completed => :true) %>">Predicciones caducadas</a>
+      </li>
+      <li <%= "class=\"active\"".html_safe if @is_ranking_list == true %>>
+        <a href="<%= authors_path %>">Ranking de predictores</a>
+      </li>
+    </ul>
+  </div>
+</div>

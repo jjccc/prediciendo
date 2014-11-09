@@ -1,0 +1,54 @@
+<div class="row no-horizontal-margin no-horizontal-padding prediction">
+  <div class="col-lg-2">
+    <img src="{{image}}">
+  </div>
+  <div class="col-lg-8">
+    <div class="row">
+      <span class="author-name">
+        {{#is_clickable}}
+          <a alt="{{name}}" title="Ver todas las predicciones de {{name}}" href="{{link}}">{{name}}</a>
+        {{/is_clickable}}
+        {{^is_clickable}}
+          {{name}}
+        {{/is_clickable}}
+      </span>
+      {{#title}}
+        <span class="author-title">· {{title}}</span>
+      {{/title}}
+    </div>
+    <div class="row performance">
+      <div class="col-lg-3 no-horizontal-padding predictions">{{attempts}}</div>  
+      <div class="col-lg-1 bracket">{</div>
+      <div class="col-lg-4 no-horizontal-padding results">
+        <span class="glyphicon glyphicon-thumbs-up text-success medium-thumb thumb-up"></span>
+        <span class="successes">{{successes}}</span><br>
+        <span class="glyphicon glyphicon-thumbs-down text-danger medium-thumb thumb-down"></span>
+        <span class="mistakes">{{mistakes}}</span>
+      </div>           
+    </div>
+  </div>
+  <div class="col-lg-2 right-aligned">    
+    <span class="author-performance">{{performance}}</span>
+    <div class="col-lg-12 no-horizontal-padding">
+      <span class="socials pull-right">
+        <a class="twitter-share" href="#" alt="Compartir en Twitter" title="Compartir en Twitter" remote="true"><img src="{{twitter_icon}}"></a>
+        <a class="facebook-share" href="#" alt="Compartir en Facebook" title="Compartir en Facebook" remote="true"><img src="{{facebook_icon}}"></a>
+        <!--<a class="email-share" href="#" alt="Enviar por correo electrónico" title="Enviar por correo electrónico" remote="true"><img src="{{email_icon}}"></a>-->
+        <input class="url-value" type="hidden" value="{{url}}">
+        <input class="tweet-value" type="hidden" value="{{tweet}}">
+      </span>
+    </div>
+  </div>    
+</div>
+{{#is_admin}}
+  <div class="row tools no-horizontal-margin">
+    <div class="col-lg-2 no-horizontal-padding pull-right">
+      <a class="btn btn-primary btn-xs" href="{{{edit_path}}}">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+      <a class="btn btn-primary btn-xs" href="{{{delete_path}}}">
+        <span class="glyphicon glyphicon-trash"></span>
+      </a>
+    </div>
+  </div>
+{{/is_admin}}

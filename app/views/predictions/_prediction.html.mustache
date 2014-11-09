@@ -1,0 +1,82 @@
+<div class="row no-horizontal-margin no-horizontal-padding {{background_class}} prediction">
+  <div class="col-lg-2">
+    <img src="{{image}}">
+  </div>
+  {{#is_pending}}
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-12 no-horizontal-padding">
+          <span class="author-name">
+            <a alt="{{author}}" title="Ver todas las predicciones de {{author}}" href="{{author_link}}">{{author}}</a>
+          </span>
+          {{#author_title}}
+            <span class="author-title">· {{author_title}}</span>
+          {{/author_title}}      
+          <p>{{{description}}}</p>
+        </div>
+        <div class="col-lg-8 no-horizontal-padding">
+          <span class="due-date">{{due_date}}</span>
+        </div>
+        <div class="col-lg-4">
+          <span class="socials pull-right">
+            <a class="twitter-share" href="#" alt="Compartir en Twitter" title="Compartir en Twitter" remote="true"><img src="{{twitter_icon}}"></a>
+            <a class="facebook-share" href="#" alt="Compartir en Facebook" title="Compartir en Facebook" remote="true"><img src="{{facebook_icon}}"></a>
+            <!--<a class="email-share" href="#" alt="Enviar por correo electrónico" title="Enviar por correo electrónico" remote="true"><img src="{{email_icon}}"></a>-->
+            <input class="url-value" type="hidden" value="{{url}}">
+            <input class="tweet-value" type="hidden" value="{{tweet}}">
+          </span>
+        </div>
+      </div>
+    </div>
+  {{/is_pending}}
+  {{^is_pending}}
+    <div class="col-lg-9">
+      <div class="row">
+        <span class="author-name">
+          <a alt="{{author}}" title="Ver todas las predicciones de {{author}}" href="{{author_link}}">{{author}}</a>
+        </span>
+        {{#author_title}}
+          <span class="author-title">· {{author_title}}</span>
+        {{/author_title}}      
+        <p>{{{description}}}</p>        
+      </div>
+      {{^is_success}}
+        <div class="row">
+          <p class="text-danger"><b>La realidad</b></p>
+        </div>
+        <div class="row">
+          <p class="text-danger">{{{result}}}</p>
+        </div>
+      {{/is_success}}
+    </div>
+    <div class="col-lg-1">
+      {{#is_success}}
+        <span class="glyphicon glyphicon-thumbs-up text-success thumb"></span>
+      {{/is_success}}
+      {{^is_success}}
+        <span class="glyphicon glyphicon-thumbs-down text-danger thumb"></span>
+      {{/is_success}}
+    </div>
+    <div class="col-lg-10 {{^is_success}}pull-right{{/is_success}}">
+      <span class="socials pull-right">
+        <a class="twitter-share" href="#" alt="Compartir en Twitter" title="Compartir en Twitter" remote="true"><img src="{{twitter_icon}}"></a>
+        <a class="facebook-share" href="#" alt="Compartir en Facebook" title="Compartir en Facebook" remote="true"><img src="{{facebook_icon}}"></a>
+        <!--<a class="email-share" href="#" alt="Enviar por correo electrónico" title="Enviar por correo electrónico" remote="true"><img src="{{email_icon}}"></a>-->
+        <input class="url-value" type="hidden" value="{{url}}">
+        <input class="tweet-value" type="hidden" value="{{tweet}}">
+      </span>
+    </div>
+  {{/is_pending}}
+</div>
+{{#is_admin}}
+  <div class="row tools no-horizontal-margin">
+    <div class="col-lg-2 no-horizontal-padding pull-right">
+      <a class="btn btn-primary btn-xs" href="{{{edit_path}}}">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+      <a class="btn btn-primary btn-xs" href="{{{delete_path}}}">
+        <span class="glyphicon glyphicon-trash"></span>
+      </a>
+    </div>
+  </div>
+{{/is_admin}}

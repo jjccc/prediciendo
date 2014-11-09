@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author_id: 1
+  description: MyString
+  result: MyString
+  is_pending: false
+  is_success: false
+  due_date: 2014-10-19 18:16:57
+
+two:
+  author_id: 1
+  description: MyString
+  result: MyString
+  is_pending: false
+  is_success: false
+  due_date: 2014-10-19 18:16:57

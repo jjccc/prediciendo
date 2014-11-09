@@ -1,0 +1,48 @@
+<%= javascript_include_tag "predictions/form" %>
+
+<%= form_for(@prediction, :html => { :role => "form"}) do |f| %>
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-author" class="form-group no-horizontal-padding">
+      <%= collection_select(:prediction, :author_id, @authors, :id, :name, {:include_blank => "(Selecciona un autor)"}, {:class => "form-control"}) %>
+    </div>
+  </div> 
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-name" class="form-group no-horizontal-padding">
+      <%= f.text_area :description, :size => "60x6", :maxlength => 600, :class => "form-control input-lg", :placeholder => "Descripción de la predicción" %>
+    </div>
+  </div>
+  <div class="col-md-12 no-horizontal-margin">
+    <div id="form-group-due-date" class="form-group input-group no-horizontal-padding">
+      <%= f.text_field :due_date, 
+                       :class => "date-picker form-control", 
+                       :maxlength => 10, 
+                       :placeholder => "Fecha de vencimiento", 
+                       :value => @prediction.new_record? ? nil : I18n.l(@prediction.due_date) %>
+      <label for="prediction_due_date" class="input-group-addon btn">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </label>
+    </div>
+  </div>
+  <div class="col-md-12 no-horizontal-margin">
+    <div class="form-group no-horizontal-padding">
+      <button type="submit" class="btn btn-primary btn-lg">Guardar</button>              
+      <a class="btn btn-warning btn-lg" href="<%= predictions_path %>">Cancelar</a>
+    </div>
+  </div>
+
+  <% unless @prediction.new_record? %>
+    <div class="col-md-12 no-horizontal-margin">
+      <div id="form-group-result" class="form-group no-horizontal-padding">
+        <%= f.text_area :result, :size => "60x6", :maxlength => 600, :class => "form-control input-lg", :placeholder => "Resultado de la predicción" %>
+      </div>
+    </div>
+    <div class="col-md-12 no-horizontal-margin">
+      <div class="form-group no-horizontal-padding">
+        <button id="success-button" type="button" class="btn btn-success btn-lg">Acierto</button>
+        <button id="mistake-button" type="button" class="btn btn-danger btn-lg">Fallo</button>
+      </div>
+    </div> 
+    <%= f.hidden_field :status %>
+  <% end %>
+  
+<% end %>

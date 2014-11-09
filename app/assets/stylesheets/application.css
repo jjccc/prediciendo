@@ -1,0 +1,197 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.container{
+  max-width: 730px;
+}
+
+.header{
+  margin-bottom: 30px;
+  height: 60px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.footer{
+  padding-top: 10px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 20px;
+}
+
+.no-horizontal-padding{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.no-horizontal-margin{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.prediction{
+  min-height: 80px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  margin-top: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.author-name{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.show .author-name{
+  font-size: 20px;
+}
+
+.author-title{
+  color: #c0c0c0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.show .author-title{
+  font-size: 20px;
+}
+
+.due-date{
+  color: #c0c0c0;
+  font-size: 12px;
+}
+
+.show .due-date{
+  font-size: 16px;
+}
+
+.show .description{
+  font-size: 22px;
+  padding-top: 10px;
+}
+
+.medium-thumb{
+  font-size: 18px;
+}
+
+.thumb{
+  font-size: 36px;
+}
+
+.author-performance{
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.performance{
+  margin-top: 10px;
+}
+
+.bracket{
+  color: #c0c0c0;
+  font-size: 36px;
+  margin-top: -3px;
+}
+
+.performance > .predictions{
+  height: 51px;
+  line-height: 51px;
+}
+.performance > .results{
+  height: 51px;
+  line-height: 25px;
+}
+
+.successes, .mistakes{
+  padding-left: 10px;
+  vertical-align: top;
+}
+
+.thumb-up{
+  margin-top: 1px;
+}
+
+.thumb-down{
+  margin-top: 3px;
+}
+
+.right-aligned{
+  text-align: right;
+}
+
+.form-title{
+  margin-top: 0px;
+}
+
+.back-index-button{
+  margin-top: 10px;
+}
+
+.tools {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.right {
+  text-align: right;
+}
+
+.socials img {
+  width: 20px;
+  height: 20px;
+}
+
+.show img {
+  width: 40px;
+  height: 40px;
+}
+
+.index-predictions{
+  margin-left: 20px;
+}
+
+.what{
+  padding: 10px;
+}
+
+.what-index{
+  margin-top: 15px;
+}
+
+.email{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo{
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.header .nav {
+  padding-top: 8px;
+}
+
+.main-bar{
+  height: 40px;
+}
+
+.claim{
+  font-size: 10px;
+  color: #cccccc;
+}

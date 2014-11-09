@@ -1,0 +1,19 @@
+<%= render :partial => "shared/new_element", :locals => { :is_admin => @is_admin, :current_path => new_prediction_path, :message => "Nueva predicción" } %>
+
+<%= render "shared/tabs" %>
+
+<% unless @predictions.blank? %>
+  <% @predictions.each do |prediction| %>
+    <%= render "prediction", :mustache => prediction %>
+  <% end %> 
+<% else %>
+  <div class="row no-horizontal-margin no-horizontal-padding prediction">
+    <div class="col-lg-6">
+      <h4>No hay ninguna predicción <%= @is_pending_predictions_list ? "pendiente" : "caducada" %>.</h4>
+    </div>
+  </div>
+<% end %>
+
+<div id="paginator">
+  <%= paginate @paginable_predictions %>
+</div>  

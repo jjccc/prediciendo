@@ -1,0 +1,82 @@
+<div class="row no-horizontal-margin no-horizontal-padding <%= @prediction.background_class %> prediction">
+  <div class="col-lg-2">
+    <img src="<%= @prediction.image %>">
+  </div>
+  <% if @prediction.is_pending %>
+    <div class="col-lg-10">
+      <div class="row show">
+        <div class="col-lg-12 no-horizontal-padding">
+          <span class="author-name">
+            <a alt="<%= @prediction.author %>" title="Ver todas las predicciones de <%= @prediction.author %>" href="<%= @prediction.author_link %>">
+              <%= @prediction.author %>
+            </a>
+           </span>
+          <% unless @prediction.author_title.blank? %>
+            <span class="author-title">· <%= @prediction.author_title %></span>
+          <% end %>      
+          <p class="description">
+            <%= @prediction.description.html_safe %>
+          </p>
+        </div>
+        <div class="col-lg-8 no-horizontal-padding">
+          <span class="due-date">
+            <%= @prediction.due_date %>
+          </span>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-lg-9">
+      <div class="row show">
+        <span class="author-name">
+          <a href="<%= @prediction.author_link %>">
+            <%= @prediction.author %>
+          </a>
+        </span>
+        <% unless @prediction.author_title.blank? %>
+          <span class="author-title">· <%= @prediction.author_title %></span>
+        <% end %>
+        <p class="description">
+          <%= @prediction.description.html_safe %>
+        </p>        
+      </div>
+      <% unless @prediction.is_success %>
+        <div class="row show">
+          <p class=" description text-danger">
+            <b>
+              La realidad
+            </b>
+          </p>
+        </div>
+        <div class="row show">
+          <p class="description text-danger">
+            <%= @prediction.result %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-1">
+      <span class="glyphicon <%= @prediction.is_success ? "glyphicon-thumbs-up text-success" : "glyphicon-thumbs-down text-danger" %> thumb"></span>
+    </div>
+  <% end %>
+</div>
+<div class="row no-horizontal-margin no-horizontal-padding prediction show">
+  <div class="col-lg-12">
+    <a class="twitter-share" href="#" alt="Compartir en Twitter" title="Compartir en Twitter" remote="true">
+      <img src="<%= @prediction.twitter_icon %>">
+    </a>
+    <a class="facebook-share" href="#" alt="Compartir en Facebook" title="Compartir en Facebook" remote="true">
+      <img src="<%= @prediction.facebook_icon %>">
+    </a>
+    <!--
+    <a class="email-share" href="#" alt="Enviar por correo electrónico" title="Enviar por correo electrónico" remote="true">
+      <img src="<%= @prediction.email_icon %>">
+    </a>
+    -->
+    <input class="url-value" type="hidden" value="<%= @prediction.url %>">
+    <input class="tweet-value" type="hidden" value="<%= @prediction.tweet %>">
+    <a href="<%= predictions_path %>" role="button" class="index-predictions btn btn-primary">
+      Ir al índice de predicciones
+    </a>
+  </diV>
+</div>

@@ -1,0 +1,19 @@
+<%= render :partial => "shared/new_element", :locals => { :is_admin => @is_admin, :current_path => new_author_path, :message => "Nuevo autor" } %>
+
+<%= render "shared/tabs" %>
+
+<% unless @paginable_authors.blank? %>
+  <% @authors.each do |author| %>
+    <%= render "author", :mustache => author %>
+  <% end %> 
+<% else %>
+  <div class="row no-horizontal-margin no-horizontal-padding prediction">
+    <div class="col-lg-6">
+      <h4>No hay ningún autor.</h4>
+    </div>
+  </div>
+<% end %>
+
+<div id="paginator">
+  <%= paginate @paginable_authors %>
+</div>  

@@ -1,0 +1,19 @@
+<div class="row no-horizontal-margin">
+  <div class="col-lg-2 no-horizontal-padding pull-right right-aligned">
+    <a href="<%= predictions_path %>" type="button" class="back-index-button btn btn-primary btn-xs">Volver</a>
+  </div>
+</div>
+
+<%= render "author", :mustache => @author %>
+
+<% unless @predictions.blank? %>
+  <% @predictions.each do |prediction| %>
+    <%= render "prediction", :mustache => prediction %>
+  <% end %> 
+<% else %>
+  <div class="row no-horizontal-margin no-horizontal-padding prediction">
+    <div class="col-lg-6">
+      <h4>No ha realizado ninguna predicción.</h4>
+    </div>
+  </div>
+<% end %>
