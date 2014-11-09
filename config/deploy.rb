@@ -287,4 +287,4 @@ end
 # Callbacks
 after 'deploy:setup', 'deploy:setup_shared_path'
 #after 'deploy:finalize_update', 'deploy:db:migrate', "deploy:assets:precompile"
-after 'deploy:create_symlink', "deploy:tmp_permissions"
+#after 'deploy:create_symlink', "deploy:tmp_permissions"
