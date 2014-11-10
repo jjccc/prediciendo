@@ -290,5 +290,5 @@ end
 
 # Callbacks
 after 'deploy:setup', 'deploy:setup_shared_path'
-after 'deploy:finalize_update', 'deploy:db:sync_yaml', 'deploy:db:migrate', "deploy:precompile"
+after 'deploy:finalize_update', 'deploy:db:sync_yaml', 'deploy:db:migrate'
 #after 'deploy:create_symlink', "deploy:tmp_permissions"
