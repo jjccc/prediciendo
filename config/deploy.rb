@@ -286,9 +286,12 @@ DocumentRoot #{File.join(deploy_to, 'current', 'public')}
     run "cd #{release_path}/ && rake assets:precompile"
   end
 
+  task :secret_token, :role => :app do
+    system "rsync -vr --exclude='.DS_Store' config/initializers/secret_token.rb #{user}@#{remote_host}:#{release_path_path}/config/initializers/"
+  end
 end
 
 # Callbacks
 after 'deploy:setup', 'deploy:setup_shared_path'
-after 'deploy:finalize_update', 'deploy:db:sync_yaml', 'deploy:db:migrate', "deploy:precompile"
+after 'deploy:finalize_update', 'deploy:db:sync_yaml', 'deploy:secret_token', 'deploy:db:migrate', "deploy:precompile"
 #after 'deploy:create_symlink', "deploy:tmp_permissions"
