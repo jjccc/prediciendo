@@ -11,6 +11,7 @@ class PredictionsController < ApplicationController
   def new
     @prediction = Prediction.new
     @authors = Author.order(:name).all
+    @form_path = predictions_path
   end
   
   def create
@@ -25,6 +26,7 @@ class PredictionsController < ApplicationController
   def edit
     @prediction = Prediction.find(params[:id])
     @authors = Author.order(:name).all
+    @form_path = prediction_path(@prediction)
   end
   
   def update

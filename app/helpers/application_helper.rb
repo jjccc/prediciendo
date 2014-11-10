@@ -5,10 +5,10 @@ module ApplicationHelper
       options = case options
       when String
         if options.index("token").nil?
-          options + (options.index('?').nil? ? '?' : '&') + "token=soyelcreadorytengopermisoparatodo"
+          options + (options.index('?').nil? ? '?' : '&') + "token=#{Prediciendo::Application.config.secret_token}"
         end
       when Hash
-        options.reverse_merge({:token => "soyelcreadorytengopermisoparatodo"})
+        options.reverse_merge({:token => Prediciendo::Application.config.secret_token})
       else
         options
       end

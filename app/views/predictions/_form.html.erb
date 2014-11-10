@@ -1,6 +1,6 @@
 <%= javascript_include_tag "predictions/form" %>
 
-<%= form_for(@prediction, :html => { :role => "form"}) do |f| %>
+<%= form_for(@prediction, :url => @form_path, :html => { :role => "form"}) do |f| %>
   <div class="col-md-12 no-horizontal-margin">
     <div id="form-group-author" class="form-group no-horizontal-padding">
       <%= collection_select(:prediction, :author_id, @authors, :id, :name, {:include_blank => "(Selecciona un autor)"}, {:class => "form-control"}) %>

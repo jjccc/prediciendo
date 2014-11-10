@@ -16,6 +16,7 @@ class AuthorsController < ApplicationController
   
   def new
     @author = Author.new
+    @form_path = authors_path
   end
   
   def create
@@ -30,6 +31,7 @@ class AuthorsController < ApplicationController
   
   def edit
     @author = Author.find(params[:id])
+    @form_path = author_path(@author)
   end
   
   def update
