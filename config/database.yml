@@ -4,8 +4,8 @@ development:
   database: prediciendo
   host: localhost
   pool: 5
-  username: ***
-  password: ***
+  username: thealarmfactory
+  password: 1p4rp3ad
   port: 5432
 
 test:
@@ -14,8 +14,8 @@ test:
   database: prediciendo_test
   pool: 5
   host: localhost
-  username: ***
-  password: ***
+  username: thealarmfactory
+  password: 1p4rp3ad
   port: 5432
 
 production:
@@ -24,6 +24,6 @@ production:
   database: prediciendo
   pool: 5
   host: localhost
-  username: ***
-  password: ***
+  username: thealarmfactory
+  password: 1p4rp3ad
   port: 5432

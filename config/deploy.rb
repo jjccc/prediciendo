@@ -281,10 +281,14 @@ DocumentRoot #{File.join(deploy_to, 'current', 'public')}
     end
     system "cap deploy:db:sync_yaml"
   end
+  
+  task :precompile, :role => :app do
+    run "cd #{release_path}/ && rake assets:precompile"
+  end
 
 end
 
 # Callbacks
 after 'deploy:setup', 'deploy:setup_shared_path'
-after 'deploy:finalize_update', 'deploy:db:migrate', "deploy:assets:precompile"
+after 'deploy:finalize_update', 'deploy:db:sync_yaml', 'deploy:db:migrate', "deploy:precompile"
 #after 'deploy:create_symlink', "deploy:tmp_permissions"
