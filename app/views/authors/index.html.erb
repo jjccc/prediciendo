@@ -2,6 +2,10 @@
 
 <%= render "shared/tabs" %>
 
+<%= render :partial => "shared/search", :locals => { :search_path => authors_path,
+                                                     :current_search => params[:q],
+                                                     :placeholder => "Buscar en los autores..." } %>
+
 <% unless @paginable_authors.blank? %>
   <% @authors.each do |author| %>
     <%= render "author", :mustache => author %>

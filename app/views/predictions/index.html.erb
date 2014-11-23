@@ -2,6 +2,10 @@
 
 <%= render "shared/tabs" %>
 
+<%= render :partial => "shared/search", :locals => { :search_path => predictions_path,
+                                                     :current_search => params[:q],
+                                                     :placeholder => "Buscar en las predicciones..." } %>
+
 <% unless @predictions.blank? %>
   <% @predictions.each do |prediction| %>
     <%= render "prediction", :mustache => prediction %>

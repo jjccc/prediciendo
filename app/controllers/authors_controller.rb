@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
 
   def index
-    authors = Author.all
+    authors = Author.filter(params[:q])
     authors.sort!{ |a, b| b.performance <=> a.performance }
     @paginable_authors = Kaminari.paginate_array(authors).
                                   page(params[:page])

@@ -1,20 +1,26 @@
 <div class="header no-horizontal-margin">
-  <div class="col-lg-12 no-horizontal-padding main-bar">
-    <ul class="nav nav-pills pull-right">
-      <li>
-        <a alt="¿Qué es?" title="¿Qué es prediciendo.com?" href="<%= what_path %>">¿Qué es?</a><br>
-        
-      </li>
-      <li>
-        <a alt="Contacto" title="Contacta con nosotros" href="#" role="button" data-toggle="modal" data-target="#contact-modal">Contacto</a>
-      </li>
-    </ul>
-    <div class="col-lg-6 logo no-horizontal-padding">
-      <a alt="prediciendo.com" title="prediciendo.com" class="logo" href="<%= root_path %>">prediciendo.com</a>
+  <div class="col-lg-12 no-horizontal-padding">
+    <div class="col-lg-5 logo">
+      <div class="row ">
+        <a alt="prediciendo.com" title="prediciendo.com" class="logo" href="<%= root_path %>">prediciendo.com</a>
+      </div>
+      <div class="row claim">
+        ¿Cuánto aciertan los que dicen que saben?
+      </div>
     </div>
-  </div>
-  <div class="col-lg-12 no-horizontal-padding claim">
-    ¿Cuánto aciertan los que dicen que saben?
+    <div class="col-lg-7 no-horizontal-padding main-bar">
+      <ul class="nav nav-pills no-horizontal-margin pull-right">
+        <li>
+          <a alt="¿Qué es?" title="¿Qué es prediciendo.com?" href="<%= what_path %>">¿Qué es?</a><br>        
+        </li>
+        <li>
+          <a alt="Contacto" title="Contacta con nosotros" href="#" role="button" data-toggle="modal" data-target="#contact-modal">Contacto</a>
+        </li>
+        <li>
+          <%= link_to_twitter %>
+        </li>
+      </ul>
+    </div>   
   </div>
 </div>
 

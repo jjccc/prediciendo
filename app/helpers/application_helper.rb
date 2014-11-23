@@ -29,4 +29,8 @@ module ApplicationHelper
     image_path("social/email.png")
   end
   
+  def link_to_twitter
+    link_to image_tag(twitter_image_path, :size => "20x20"), "https://twitter.com/prediciendo", :class => "twitter-follow-button", :title => "Seguir a @prediciendo en Twitter", :"data-show-count" => "false", :"data-lang" => "es", :rel => "nofollow" 
+  end
+  
 end

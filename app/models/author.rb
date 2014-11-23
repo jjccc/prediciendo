@@ -35,6 +35,14 @@ class Author < ActiveRecord::Base
     self.save
   end
   
+  def self.filter(search)
+    if search.blank?
+      Author.all
+    else
+      Author.where("(name ilike ?) or (title ilike ?)", "%#{search}%", "%#{search}%")
+    end
+  end
+  
   private 
   
   def path

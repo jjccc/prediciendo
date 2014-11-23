@@ -1,10 +1,7 @@
 class PredictionsController < ApplicationController
 
   def index
-    @paginable_predictions = Prediction.where(:is_pending => @is_pending_predictions_list).
-                             order("created_at desc").
-                             page(params[:page])
-                             
+    @paginable_predictions = Prediction.filter(@is_pending_predictions_list, params[:page], params[:q])                             
     @predictions = PredictionDecorator.decorate_collection(@paginable_predictions, :context => { :is_admin => @is_admin })
   end
   
