@@ -21,15 +21,16 @@ class Prediction < ActiveRecord::Base
     self.author.refresh
   end
   
-  def self.filter(is_pending_predictions_list, page, search)
+  def self.filter(is_pending_predictions_list, sort, page, search)
+    order_by = (sort.nil? || sort == "creation_date") ? "created_at desc" : "due_date, created_at desc"
     if search.blank?
       Prediction.where(:is_pending => is_pending_predictions_list).
-                 order("created_at desc").
+                 order(order_by).
                  page(page)
     else
       Prediction.joins(:author).where(:is_pending => is_pending_predictions_list).
                  where("(predictions.description ilike ?) or (authors.title ilike ?) or (authors.name ilike ?)", "%#{search}%", "%#{search}%", "%#{search}%").
-                 order("created_at desc").
+                 order(order_by).
                  page(page)
     end
   end

@@ -199,3 +199,8 @@
 .search{
   margin-top: 15px;
 }
+
+.sorter{
+  font-size: 11px;
+  text-align: right;
+}
