@@ -1,6 +1,9 @@
 class Prediction < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :tag, use: :slugged
+  
   attr_accessor :status
-  attr_accessible :author_id, :description, :due_date, :is_pending, :is_success, :result, :status
+  attr_accessible :author_id, :description, :due_date, :is_pending, :is_success, :result, :status, :tag
   
   belongs_to :author
   

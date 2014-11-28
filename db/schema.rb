@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141024192040) do
+ActiveRecord::Schema.define(:version => 20141128172345) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",                      :null => false
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(:version => 20141024192040) do
     t.date     "due_date",                      :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "tag",         :default => "",   :null => false
+    t.string   "slug"
   end
+
+  add_index "predictions", ["slug"], :name => "index_predictions_on_slug"
 
 end

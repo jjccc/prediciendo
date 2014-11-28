@@ -9,6 +9,7 @@ gem "draper", "~> 1.3"
 gem "js-routes"
 gem "gon"
 gem "net-ssh", "2.7.0"
+gem "friendly_id", "~> 4.0.10"
 
 # Gems used only for assets and not required
 # in production environments by default.

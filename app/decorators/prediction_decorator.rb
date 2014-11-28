@@ -59,7 +59,7 @@ class PredictionDecorator < Draper::Decorator
   end
   
   def url
-    h.prediction_url(prediction.id)
+    h.prediction_url(prediction)
   end
   
   def tweet
