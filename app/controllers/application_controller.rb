@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def grant
-    not_found unless is_granted?
+    not_found unless is_granted? || params[:controller] == "mails"
   end
   
   def current_tab
