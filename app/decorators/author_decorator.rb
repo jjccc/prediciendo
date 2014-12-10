@@ -2,7 +2,7 @@ class AuthorDecorator < Draper::Decorator
   delegate_all
   
   def has_author_title
-    !object.author.title.blank?
+    !object.title.blank?
   end
   
   def performance
