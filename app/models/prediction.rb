@@ -16,6 +16,7 @@ class Prediction < ActiveRecord::Base
     unless self.status.blank?
       self.is_pending = false
       self.is_success = (self.status == "success")
+      return true
     end
   end
   
