@@ -40,14 +40,12 @@
         {{/author_title}}      
         <p>{{{description}}}</p>        
       </div>
-      {{^is_success}}
-        <div class="row">
-          <p class="text-danger"><b>La realidad</b></p>
-        </div>
-        <div class="row">
-          <p class="text-danger">{{{result}}}</p>
-        </div>
-      {{/is_success}}
+      <div class="row">
+        <p class="{{result_class}}"><b>La realidad</b></p>
+      </div>
+      <div class="row">
+        <p class="{{result_class}}">{{{result}}}</p>
+      </div>
     </div>
     <div class="col-lg-1">
       {{#is_success}}

@@ -19,12 +19,17 @@ class PredictionDecorator < Draper::Decorator
   end
   
   def due_date
-    h.time_ago_in_words(object.due_date)
+    dd = h.time_ago_in_words(object.due_date)
+    if is_waiting_for_confirmation == true
+      dd = dd.gsub("Faltan", "Hace").gsub("Falta", "Hace")  if is_waiting_for_confirmation == true
+      dd = "#{dd}. Esperando confirmación"
+    end
+    dd
   end
   
   def background_class
     if object.is_pending
-      ""
+      is_waiting_for_confirmation ? "bg-warning" : ""
     else
       is_success ? "bg-success" : "bg-danger"
     end
@@ -64,6 +69,14 @@ class PredictionDecorator < Draper::Decorator
   
   def tweet
     "Conoce la predicción de #{self.author} "  
+  end
+  
+  def is_waiting_for_confirmation
+    object.due_date < Date.today && object.is_pending == true
+  end
+  
+  def result_class
+    object.is_success ? "text-success" : "text-danger"
   end
 
 end

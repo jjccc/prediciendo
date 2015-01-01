@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_role, :grant, :current_tab
   
   def set_role
-    @is_admin = params[:token].present? && params[:token] == Prediciendo::Application.config.secret_token
+    @is_admin = (params[:token].present? && params[:token] == Prediciendo::Application.config.secret_token) || Rails.env.development?
   end
   
   def grant
