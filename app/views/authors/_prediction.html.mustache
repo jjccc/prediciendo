@@ -19,10 +19,8 @@
   {{^is_pending}}
     <div class="col-lg-11">
         <p>{{{description}}}</p>        
-      {{^is_success}}
-        <p class="text-danger"><b>La realidad</b></p>
-        <p class="text-danger">{{{result}}}</p>
-      {{/is_success}}
+        <p class="{{result_class}}"><b>La realidad</b></p>
+        <p class="{{result_class}}">{{{result}}}</p>
     </div>
     <div class="col-lg-1">
       {{#is_success}}
