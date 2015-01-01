@@ -15,7 +15,6 @@ class Prediction < ActiveRecord::Base
   def close
     unless self.status.blank?
       self.is_pending = false
-      self.is_waiting_for_confirmation = false
       self.is_success = (self.status == "success")
       self.result = nil if self.is_success
     end
