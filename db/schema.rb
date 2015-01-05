@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141207151524) do
+ActiveRecord::Schema.define(:version => 20150105222800) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",                      :null => false
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20141207151524) do
 
   create_table "predictions", :force => true do |t|
     t.integer  "author_id",                     :null => false
-    t.string   "description",                   :null => false
-    t.string   "result"
+    t.text     "description",                   :null => false
+    t.text     "result"
     t.boolean  "is_pending",  :default => true, :null => false
     t.boolean  "is_success"
     t.date     "due_date",                      :null => false
