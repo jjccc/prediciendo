@@ -9,7 +9,8 @@ class AuthorsController < ApplicationController
   end
   
   def show
-    author = Author.find(params[:id].to_i)
+    author = Author.find_by_id(params[:id])
+    author = Author.find_by_slug(params[:id]) if author.nil?
     @author = AuthorDecorator.decorate(author, :context => { :is_clickable => false })
     @predictions = PredictionDecorator.decorate_collection(@author.predictions.order("created_at desc"), :context => { :is_admin => @is_admin })
   end

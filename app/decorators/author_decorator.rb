@@ -28,15 +28,11 @@ class AuthorDecorator < Draper::Decorator
     object.attempts == 1 ? "#{a} predicción" : "#{a} predicciones"
   end
   
-  def link
-    h.author_path(object.id)
-  end
-  
   def is_clickable
     context[:is_clickable].nil? || context[:is_clickable] == true
   end
   
-    def edit_path
+  def edit_path
     h.edit_author_path(object.id)
   end
   
@@ -61,7 +57,7 @@ class AuthorDecorator < Draper::Decorator
   end
   
   def url
-    h.author_url(object.id)
+    h.author_url(object)
   end
   
   def tweet

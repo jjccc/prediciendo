@@ -36,7 +36,7 @@ class PredictionDecorator < Draper::Decorator
   end
   
   def author_link
-    h.author_path(object.author_id)
+    h.author_path(object.author)
   end
   
   def edit_path
@@ -64,7 +64,7 @@ class PredictionDecorator < Draper::Decorator
   end
   
   def url
-    h.prediction_url(prediction)
+    h.prediction_url(object)
   end
   
   def tweet

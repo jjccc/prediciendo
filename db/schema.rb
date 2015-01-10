@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150105222800) do
+ActiveRecord::Schema.define(:version => 20150110122935) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",                      :null => false
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(:version => 20150105222800) do
     t.integer  "attempts",   :default => 0, :null => false
     t.string   "image"
     t.integer  "mistakes",   :default => 0, :null => false
+    t.string   "slug"
   end
+
+  add_index "authors", ["slug"], :name => "index_authors_on_slug"
 
   create_table "mails", :force => true do |t|
     t.string   "result"

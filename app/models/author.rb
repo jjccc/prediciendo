@@ -1,4 +1,7 @@
 class Author < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :custom_slug, use: :slugged
+  
   attr_accessor :file
   attr_accessible :name, :title, :image, :file
   
@@ -6,6 +9,10 @@ class Author < ActiveRecord::Base
   
   before_save :process_image
   
+  def custom_slug
+    "#{self.name} #{self.title}".strip
+  end
+ 
   def performance
     (self.successes + self.mistakes) == 0 ? 0.0 : (self.successes.to_f / (self.mistakes + self.successes).to_f * 100)
   end
